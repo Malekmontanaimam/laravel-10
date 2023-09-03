@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +16,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    // $user=User::all();
+  // $user=DB::select('select * from users where id =3 ');
+    // $user=User::create([
+        // 'name'=>'waertd',
+        // 'email'=>'w1r@gmail.com',
+        // 'password'=>'malekimam'
+    // ]);
+     $user=User::find(3);
+    // $user->delete();
+
+       dd($user->name);
 });
 
 Route::get('/dashboard', function () {
