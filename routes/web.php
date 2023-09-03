@@ -16,18 +16,14 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', function () {
-    // return view('welcome');
-    // $user=User::all();
-  // $user=DB::select('select * from users where id =3 ');
-    // $user=User::create([
-        // 'name'=>'waertd',
-        // 'email'=>'w1r@gmail.com',
-        // 'password'=>'malekimam'
-    // ]);
-     $user=User::find(3);
-    // $user->delete();
+     return view('welcome');
 
-       dd($user->name);
+
+
+
+
+
+
 });
 
 Route::get('/dashboard', function () {
@@ -37,6 +33,7 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::patch('/profile/avatar',[AvatarController::class, 'update'])->name('profile.avatar');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
